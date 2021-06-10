@@ -38,7 +38,7 @@ public class CurrencyConverter {
 		}
 		System.out.print("\nWhat amount would you like converted? Please enter numbers only (no dollar signs or other symbols): ");
 		BigDecimal amount = console.nextBigDecimal();
-		BigDecimal convertedAmt = ratioArr[endCurrency-1].divide(ratioArr[begCurrency-1]).multiply(amount).setScale(2, RoundingMode.HALF_UP);
+		BigDecimal convertedAmt = ratioArr[endCurrency-1].divide(ratioArr[begCurrency-1], 2, RoundingMode.HALF_UP).multiply(amount).setScale(2, RoundingMode.HALF_UP);
 		System.out.println("----------------------------------------------------------------------------------------------------------");
 		System.out.println("\n" + String.format("%,.2f", amount) + " in " + regionArr[begCurrency-1] + " is " + 
 				String.format("%,.2f", convertedAmt) + " in " + regionArr[endCurrency-1]);
